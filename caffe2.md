@@ -3,6 +3,7 @@
 
 
 </br>
+</br>
 
 ## 环境需求
 
@@ -12,7 +13,8 @@
 
 
 
-
+</br>
+</br>
 
 ## 我的系统环境
 
@@ -24,7 +26,8 @@
 - CUDNN： 7.4.2
 - Python： python3.7 ，推荐采用anaconda虚拟环境安装，具体操作为  `conda create -n env_name python=3.7`  env_name 可以自由设定，此处我们设定为  `env3.7`，不做特殊说明，均用此名代表虚拟环境名
 
-
+</br>
+</br>
 
 ## 预先安装的库
 
@@ -35,10 +38,11 @@
 - Caffe2: `conda install -y pydot future networkx`
 - DensePose: `conda install -y opencv mock scipy h5py`
 - SMPL model: `pip install chumpy`
-
+</br>
    **尤其注意，pyyaml当前最新已经达到了4.x，但是当加载 `.yaml` 时会造成 `ConstructorError`，具体参考该[issue](https://github.com/facebookresearch/DensePose/issues/216) ，总之要确保pyyaml版本大于3.12**
 
-
+</br>
+</br>
 
 ## GCC编译
 
@@ -50,10 +54,7 @@
 strings -a $TORCH_PATH/lib/libcaffe2.so | grep "GCC: ("
 GCC: (GNU) 4.9.2 20150212 (Red Hat 4.9.2-6)`
 ```
-
-
-
-
+</br>
 
 ### 安装GCC
 
@@ -85,9 +86,7 @@ make && make install
 cd ..
 ```
 
-
-
-
+</br>
 
 接着进行GCC-4.9.2的安装（多个/path/to/ 都要替换成自己gcc的安装位置）
 
@@ -100,7 +99,7 @@ $ cd bin/
 $ ln -s gcc cc  # create a symbol link 'cc' for 'gcc'
 $ cp -r include/c++ $CONDA_ENV_PATH/include
 ```
-
+</br>
 **接着将 gcc 加入环境变量到`.bashrc` 或者 `/etc/profile` 当中：**
 
 `export PATH=/path/to/gcc-4.9.2/build/bin:$PATH` 
@@ -109,7 +108,8 @@ $ cp -r include/c++ $CONDA_ENV_PATH/include
 
 
 
-
+</br>
+</br>
 
 ## Google Protocol Buffer（protobuf）
 
@@ -142,7 +142,7 @@ $ cp -r include/c++ $CONDA_ENV_PATH/include
 
 **3005000 即代表3.5.0，会发现无论是大于300500还是小于300500都会报错**
 
-
+</br>
 
 ### 安装protobuf C/C++ API
 
@@ -163,7 +163,7 @@ make install
 ```
 
 
-
+</br>
 此时，protobuf 已经安装完成，需要进行protobuf版本的切换，此时有两种方法：
 
 - 将 `/path/to/protobuf-3.5.0/build/bin` 和 `/path/to/protobuf-3.5.0/build/lib` 加入到环境变量 `$PATH` 和 `$LD_LIBRARY_PATH` 中
@@ -178,7 +178,7 @@ make install
   ```
 
 
-
+</br>
 ### 安装protobuf Python API
 
 确保你现在切到了正确的python环境（env3.7)
@@ -190,7 +190,7 @@ python setup.py install
 ```
 
 
-
+</br>
 
 
 ### 安装 COCO API
@@ -205,7 +205,8 @@ $ make install
 
 
 
-## 
+</br>
+</br>
 
 ## Caffe2安装
 
@@ -216,7 +217,7 @@ caffe2已经整合到[PyTorch](https://pytorch.org/)中了，可以通过anacond
 如果Pytorch安装完成，你可以在(`$CONDA_ENV_PATH/lib/python3.7/site-packages/`) 中找到`torch`和`caffe2`文件夹，方便起见，我们设 `TORCH_PATH=$CONDA_ENV_PATH/lib/pythonx.x/site-packages/torch`
 
 
-
+</br>
 下面准备进行caffe2的测试，此时请确保 Caffe2 和 protobuf 已经安装，运行以下命令：
 
 ```bash
@@ -232,11 +233,11 @@ $ python -c 'from caffe2.python import workspace; print(workspace.NumCudaDevices
 
 
 
-
-
+</br>
+</br>
 ## DensePose
 
-
+</br>
 
 ### 安装DensePose
 
@@ -246,7 +247,7 @@ $ python -c 'from caffe2.python import workspace; print(workspace.NumCudaDevices
 git clone https://github.com/facebookresearch/densepose $DENSEPOSE
 ```
 
-
+</br>
 
 建立Python模块
 
@@ -257,7 +258,7 @@ cd $DENSEPOSE
 python setup.py develop
 ```
 
-
+</br>
 
 检查Detectron tests 是否通过
 
@@ -268,7 +269,7 @@ python $DENSEPOSE/detectron/tests/test_spatial_narrow_as_op.py
 ```
 
 
-
+</br>
 ### 建立 custom operators library
 
 - 编辑 `$DENSEPOSE/CMakeLists.txt`如下：
@@ -328,6 +329,8 @@ python $DENSEPOSE/detectron/tests/test_spatial_narrow_as_op.py
   ```
 
   **在该文件最上方手工设置各个环境变量的路径，包括CUDNN，anaconda等**
+  
+</br>
 
 - 下载[PyTorch](https://github.com/pytorch/pytorch)的源码,然后将`$PYTORCH/caffe2/utils/threadpool` 拷贝到`$TORCH_PATH/lib/include/caffe2/utils/`中（**注意，是整个文件夹拷贝过去，不要把文件夹里的文件直接和utils中的c++文件混在一起）**
 
