@@ -238,8 +238,6 @@ $ python -c 'from caffe2.python import workspace; print(workspace.NumCudaDevices
 
 ## DensePose
 
-</br>
-
 ### 安装DensePose
 
 克隆该仓库到一个特定目录（假设为DENSEPOSE）
