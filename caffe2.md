@@ -54,7 +54,6 @@
 strings -a $TORCH_PATH/lib/libcaffe2.so | grep "GCC: ("
 GCC: (GNU) 4.9.2 20150212 (Red Hat 4.9.2-6)`
 ```
-</br>
 
 ### 安装GCC
 
