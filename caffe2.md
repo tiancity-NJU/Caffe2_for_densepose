@@ -7,7 +7,7 @@
 
 ## 环境需求
 
-- NVIDIA GPU，Linux，Python3（最好使用[Anaconda3]https://www.anaconda.com/distribution/#download-section)环境。
+- NVIDIA GPU，Linux，Python3（最好使用[Anaconda3](https://www.anaconda.com/distribution/#download-section)环境。
 - Caffe2，一些python包，COCO API。
 - [cmake 3.8.2](https://cmake.org/files/)（cmake3即可），(gcc-4.9.2)[https://ftp.gnu.org/gnu/gcc/gcc-4.9.2/]，(protobuf-3.5.0)[https://github.com/protocolbuffers/protobuf/releases/tag/v3.5.0]，我们统一按照anaconda的方式进行安装。
 
