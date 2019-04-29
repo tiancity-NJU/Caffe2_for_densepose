@@ -1,4 +1,4 @@
-# caffe2环境以及densepose环境配置
+# caffe2以及densepose环境配置
 
 
 
